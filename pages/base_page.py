@@ -31,6 +31,5 @@ class BasePage:
         self.wait.until(EC.url_contains(part))
     
     def js_click(self, locator):
-        #element = self.find_element(locator)
         element = self.wait.until(EC.visibility_of_element_located(locator))
         self.driver.execute_script("arguments[0].click();", element)

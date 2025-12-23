@@ -24,7 +24,6 @@ class MainPage(BasePage):
     def get_faq_answer(self, index):
         element = self.find_element(MainPageLocators.FAQ_ANSWER(index))
         return element.text.strip()
-        #return self.get_text(MainPageLocators.FAQ_ANSWER(index))
 
     def go_to_order_from_header(self):
         self.click_header_order()

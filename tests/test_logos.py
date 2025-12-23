@@ -1,6 +1,6 @@
 import allure
 from pages.main_page import MainPage
-#from pages.dzen_page import DzenPage
+
 from urls import Urls
 
 class TestLogos:
@@ -18,7 +18,5 @@ class TestLogos:
         main.accept_cookies()
         main.click_yandex_logo()
         main.switch_to_new_tab()
-        #main.wait_for_url_contains(Urls.DZEN_PART)
-        #dzen = DzenPage(driver)
-        #assert dzen.is_dzen_loaded()
+
         main.wait_for_url_contains("dzen")

@@ -14,5 +14,3 @@ class MainPageLocators:
     @staticmethod
     def FAQ_ANSWER(index):
         return (By.ID, f"accordion__panel-{index}")
-        #return (By.XPATH, f"//div[@id='accordion_panel-{index}']/p")
-        #return (By.ID, f"accordion__panel-{index}/p")

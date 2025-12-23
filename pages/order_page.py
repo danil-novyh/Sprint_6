@@ -16,13 +16,9 @@ class OrderPage(BasePage):
         self.click(OrderPageLocators.NEXT_BUTTON)
 
     def fill_second_form(self, date, period, color, comment):
-        #self.set_text(OrderPageLocators.DATE, date)
         date_field = self.find_element(OrderPageLocators.DATE)
         date_field.clear()
         date_field.send_keys(date)
-        # Закрываем календарь TABом
-        #date_field.send_keys(Keys.TAB)
-        #time.sleep(2)
         self.click((By.XPATH, "//div[text()='Про аренду']"))
         self.click(OrderPageLocators.RENTAL_PERIOD)
         self.click(OrderPageLocators.RENTAL_OPTION(period))
@@ -41,20 +37,9 @@ class OrderPage(BasePage):
             EC.element_to_be_clickable((By.XPATH, "(//div[contains(@class, 'Order_Buttons__')]//button)[last()]"))
         )
         self.driver.execute_script("arguments[0].click();", confirm_button)
-    
         # Ждём успех
         self.wait.until(EC.visibility_of_element_located((By.XPATH, "//*[text()='Заказ оформлен']")))
-        #
-        #self.wait.until(EC.invisibility_of_element_located((By.CLASS_NAME, "Order_Overlay__3KW-T")))
-        # Дожидаемся, что кнопка "Да" кликабельна и нажимаем
-        #self.wait.until(EC.element_to_be_clickable(OrderPageLocators.CONFIRM_BUTTON))
-        ###self.js_click((By.XPATH, "//button[text()='Да']"))
 
     def is_order_success(self):
         return "Заказ оформлен" in self.get_text(OrderPageLocators.SUCCESS_MODAL)
-    #def is_order_success(self):
-    #    try:
-    #        self.wait.until(EC.visibility_of_element_located((By.XPATH, "//*[text()='Заказ оформлен']")))
-    #        return True
-    #    except:
-    #        return False
+
