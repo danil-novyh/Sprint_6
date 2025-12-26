@@ -8,6 +8,10 @@ class OrderPageLocators:
     PHONE = (By.XPATH, "//input[@placeholder='* Телефон: на него позвонит курьер']")
     NEXT_BUTTON = (By.XPATH, "//button[text()='Далее']")
 
+    @staticmethod
+    def get_metro_station_locator(station_name: str):
+        return (By.XPATH, f"//div[text()='{station_name}']")
+    
     DATE = (By.XPATH, "//input[@placeholder='* Когда привезти самокат']")
     RENTAL_PERIOD = (By.CLASS_NAME, "Dropdown-placeholder")
     RENTAL_OPTION = lambda text: (By.XPATH, f"//div[text()='{text}']")
@@ -18,3 +22,9 @@ class OrderPageLocators:
     CONFIRM_BUTTON = (By.XPATH, "//button[text()='Да']")
     SUCCESS_MODAL = (By.XPATH, "//*[text()='Заказ оформлен']")
     
+    @staticmethod
+    def get_rental_period_locator(period: str):
+        return (By.XPATH, f"//div[text()='{period}']")
+    
+    CONFIRM_MODAL_TEXT = (By.XPATH, "//*[text()='Хотите оформить заказ?']")
+    PRO_ARENDU_HEADER = (By.XPATH, "//div[text()='Про аренду']")
